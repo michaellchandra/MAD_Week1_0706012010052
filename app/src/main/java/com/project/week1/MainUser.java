@@ -92,7 +92,7 @@ public class MainUser extends AppCompatActivity {
                 String userName = user_textInputLayout_name.getEditText().getText().toString().trim();
                 int userAge = Integer.parseInt(user_textInputLayout_age.getEditText().getText().toString().trim());
                 String userAddress = user_textInputLayout_address.getEditText().getText().toString().trim();
-
+                UserDetails temp = new UserDetails(userName, userAge, userAddress);
                 User user = new User(userName, userAge, userAddress);
                 Intent intent = new Intent();
                 intent.putExtra("listUser", user);
