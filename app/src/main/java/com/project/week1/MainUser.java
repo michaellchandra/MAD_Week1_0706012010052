@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputLayout;
 
 import Storage.User;
+import Storage.UserDetails;
 
 public class MainUser extends AppCompatActivity {
 

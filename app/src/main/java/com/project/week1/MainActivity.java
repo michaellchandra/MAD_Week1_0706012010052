@@ -68,15 +68,15 @@ public class MainActivity extends AppCompatActivity {
 //        Intent intent = new Intent();
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        User userBaru = data.getParcelableExtra("listUser");
-        dataUser.add(userBaru);
-        adapter.notifyDataSetChanged();
-//        main_textView_noData.setVisibility(View.GONE);
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        User userBaru = data.getParcelableExtra("listUser");
+//        dataUser.add(userBaru);
+//        adapter.notifyDataSetChanged();
+////        main_textView_noData.setVisibility(View.GONE);
+//    }
 
     private void setListener (){
         main_floatingButton_plus.setOnClickListener(new View.OnClickListener() {
