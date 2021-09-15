@@ -9,11 +9,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import Storage.User;
+import Storage.StorageUser;
 
 public class MainDetails extends AppCompatActivity {
 
-    private ImageView detail_imageView_back, detail_imageView_profile, detail_imageView_delete;
+    private ImageView detail_imageView_back, detail_imageView_profile, detail_imageView_delete, detail_imageView_edit;
     private TextView detail_textView_name, detail_textView_age, detail_textView_address;
     private String userName, userAge, userAddress;
 
@@ -32,34 +32,46 @@ public class MainDetails extends AppCompatActivity {
         detail_textView_address = findViewById(R.id.details_textView_address);
         detail_imageView_back = findViewById(R.id.detail_imageView_back);
         detail_imageView_profile = findViewById(R.id.detail_imageView_profile);
+        detail_imageView_edit = findViewById(R.id.detail_imageView_edit);
 
         Intent intent = new Intent();
         intent = getIntent();
 
-        User user = intent.getParcelableExtra("listUser");
-        detail_textView_name.setText(user.getUserName());
-        detail_textView_age.setText(user.getUserAge());
-        detail_textView_address.setText(user.getUserAddress());
+        StorageUser storageUser = MainActivity.dataStorageUser.get(intent.getIntExtra("cardIndex",0));
+        detail_textView_name.setText(storageUser.getUserName());
+        detail_textView_age.setText(String.valueOf(storageUser.getUserAge()));
+        detail_textView_address.setText(storageUser.getUserAddress());
 
-
+        int cardIndex = intent.getIntExtra("cardIndex",0);
 
 
         detail_imageView_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), MainActivity.class);
-                startActivity(intent);
                 finish();
             }
         });
 
-//        detail_imageView_delete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = getIntent();
-//                User
-//            }
-//        });
+//        Intent finalIntent = intent;
+        detail_imageView_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.dataStorageUser.remove(cardIndex);
+                MainActivity.adapter.notifyDataSetChanged();
+                finish();
+            }
+        });
+
+        detail_imageView_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(getBaseContext(), MainUser.class);
+                intent2.putExtra("cardIndex", cardIndex);
+                intent2.putExtra("userEditAdd",1);
+                startActivity(intent2);
+                finish();
+            }
+        });
 
     }
 }

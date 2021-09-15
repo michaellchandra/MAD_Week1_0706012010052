@@ -1,6 +1,5 @@
 package com.project.week1;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,15 +16,15 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
-import Storage.User;
+import Storage.StorageUser;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView main_textView_noData;
     private FloatingActionButton main_floatingButton_plus;
     private RecyclerView main_recyclerView;
-    private ArrayList<User> dataUser;
-    private UserAdapter adapter;
+    public static ArrayList<StorageUser> dataStorageUser;
+    static UserAdapter adapter;
 
     boolean doubleTapExit = false;
 
@@ -82,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         main_floatingButton_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), MainUser.class);
+                Intent intent = new Intent(getBaseContext(), com.project.week1.MainUser.class);
                 startActivity(intent);
             }
         });
@@ -98,9 +97,9 @@ public class MainActivity extends AppCompatActivity {
         main_recyclerView = findViewById(R.id.main_recyclerView);
         main_textView_noData = findViewById(R.id.main_textView_noData);
         main_floatingButton_plus = findViewById(R.id.main_floatingButton_plus);
-        dataUser = new ArrayList<User>();
+        dataStorageUser = new ArrayList<StorageUser>();
 
-        adapter = new UserAdapter(dataUser);
+        adapter = new UserAdapter(dataStorageUser);
 
 
     }

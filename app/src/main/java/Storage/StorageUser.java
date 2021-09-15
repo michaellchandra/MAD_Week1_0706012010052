@@ -3,13 +3,13 @@ package Storage;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class User implements Parcelable {
+public class StorageUser implements Parcelable {
 
     private String userName;
     private int userAge;
     private String userAddress;
 
-    public User(String userName, int userAge, String userAddress) {
+    public StorageUser(String userName, int userAge, String userAddress) {
         this.userName = userName;
         this.userAge = userAge;
         this.userAddress = userAddress;
@@ -39,25 +39,25 @@ public class User implements Parcelable {
         this.userAddress = userAddress;
     }
 
-    public static Creator<User> getCREATOR() {
+    public static Creator<StorageUser> getCREATOR() {
         return CREATOR;
     }
 
-    protected User(Parcel in) {
+    protected StorageUser(Parcel in) {
         userName = in.readString();
         userAge = in.readInt();
         userAddress = in.readString();
     }
 
-    public static final Creator<User> CREATOR = new Creator<User>() {
+    public static final Creator<StorageUser> CREATOR = new Creator<StorageUser>() {
         @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
+        public StorageUser createFromParcel(Parcel in) {
+            return new StorageUser(in);
         }
 
         @Override
-        public User[] newArray(int size) {
-            return new User[size];
+        public StorageUser[] newArray(int size) {
+            return new StorageUser[size];
         }
     };
 
