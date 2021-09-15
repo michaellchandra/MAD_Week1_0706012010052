@@ -61,12 +61,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initView();
         setupRecyclerView();
-
         setListener();
 
 
 
-        Intent intent = new Intent();
+//        Intent intent = new Intent();
     }
 
     @Override
@@ -76,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         User userBaru = data.getParcelableExtra("listUser");
         dataUser.add(userBaru);
         adapter.notifyDataSetChanged();
-        main_textView_noData.setVisibility(View.GONE);
+//        main_textView_noData.setVisibility(View.GONE);
     }
 
     private void setListener (){

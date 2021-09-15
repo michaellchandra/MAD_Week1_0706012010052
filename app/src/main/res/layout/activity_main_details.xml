@@ -149,4 +149,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/btn_dialog" />
+
+    <ImageView
+        android:id="@+id/detail_imageView_edit"
+        android:layout_width="31dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="31dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/detail_imageView_delete"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
 </androidx.constraintlayout.widget.ConstraintLayout>

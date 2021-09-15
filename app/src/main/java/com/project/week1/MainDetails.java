@@ -42,6 +42,8 @@ public class MainDetails extends AppCompatActivity {
         detail_textView_address.setText(user.getUserAddress());
 
 
+
+
         detail_imageView_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

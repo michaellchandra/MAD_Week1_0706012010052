@@ -22,7 +22,7 @@ public class MainUser extends AppCompatActivity {
     private TextInputLayout user_textInputLayout_name, user_textInputLayout_age, user_textInputLayout_address;
     private Button user_button_save;
     private ImageView user_imageView_back;
-    private Boolean validateUserName, validateUserAge, validateUserAddress;
+//    private Boolean validateUserName, validateUserAge, validateUserAddress;
     Loading loading = new Loading (MainUser.this);
 
     @Override
